@@ -5,7 +5,6 @@ export class CustomersListPage {
 		this.page = page
 		this.rowLocator = (name) =>
 			this.page.getByRole('row').filter({ hasText: name })
-		this.deleteButton = this.page.getByRole('button', { name: 'Delete' })
 		this.searchField = this.page.getByRole('textbox', {
 			name: 'Search Customer',
 		})
@@ -13,7 +12,9 @@ export class CustomersListPage {
 	}
 
 	async open() {
-		await this.page.goto('/angularJs-protractor/BankingProject/#/manager/list')
+		await this.page.goto(
+			'/angularJs-protractor/BankingProject/#/manager/list',
+		)
 	}
 
 	async reload() {
@@ -21,7 +22,9 @@ export class CustomersListPage {
 	}
 
 	async clickOnDeleteButton(name) {
-		await this.rowLocator(name).locator(this.deleteButton).click()
+		await this.rowLocator(name)
+			.getByRole('button', { name: 'Delete' })
+			.click()
 	}
 
 	async assertCustomerRowNotVisible(name) {
