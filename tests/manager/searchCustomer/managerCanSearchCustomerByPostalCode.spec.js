@@ -51,7 +51,7 @@ test('Assert manager can search customer by Postal Code', async ({ page }) => {
 	// Open Customers page.
 	await customersListPage.open()
 
-	// Fill the firstName to the search field
+	// Fill the postalCode to the search field
 	await customersListPage.fillSearchField(postalCode)
 
 	// Assert customer row is present in the table.

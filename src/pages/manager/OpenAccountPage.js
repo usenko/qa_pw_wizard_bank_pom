@@ -5,7 +5,6 @@ export class OpenAccountPage {
 		this.page = page
 		this.rowLocator = (name) =>
 			this.page.getByRole('row').filter({ hasText: name })
-		this.accountCell = this.page.getByRole('cell').nth(3)
 	}
 
 	async open() {
@@ -40,7 +39,7 @@ export class OpenAccountPage {
 
 	async assertAccountCellNotEmpty(name) {
 		await expect(
-			this.rowLocator(name).locator(this.accountCell),
+			this.rowLocator(name).locator(this.page.getByRole('cell').nth(3)),
 		).not.toBeEmpty()
 	}
 }

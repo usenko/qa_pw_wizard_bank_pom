@@ -52,7 +52,7 @@ test('Assert manager can search customer by Last Name', async ({ page }) => {
 	// Open Customers page.
 	await customersListPage.open()
 
-	// Fill the firstName to the search field
+	// Fill the lastName to the search field
 	await customersListPage.fillSearchField(lastName)
 
 	// Assert customer row is present in the table.
